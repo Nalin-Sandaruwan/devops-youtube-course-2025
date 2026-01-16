@@ -14,19 +14,13 @@ const PORT = process.env.PORT || 5000;
 const corsOptions = {
   origin: [
     'http://localhost:5173', // Vite dev server / mapped frontend
-    'http://54.146.170.255:5000/',
+    'http://3.26.242.54:5173',
     '' // Frontend when accessed via server public IP
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-app.use((req, res, next) => {
-  if (req.headers['access-control-request-private-network']) {
-    res.setHeader('Access-Control-Allow-Private-Network', 'true');
-  }
-  next();
-});
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(express.json());
