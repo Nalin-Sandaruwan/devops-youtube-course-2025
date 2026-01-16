@@ -71,7 +71,7 @@ function App() {
             <div>
               <h1 className="text-3xl font-bold text-gray-900">Nalin Sandaruwan's</h1>
               <p className="text-gray-600 mt-1">Simple task management for DevOps demo</p>
-              <p>Welcome Fullstack to ci cd work from Nalin Sandaruwan</p>
+              <p>Welcome Fullstacto ci cd work from Nalin Sandaruwan</p>
             </div>
             <button
               onClick={() => setIsDialogOpen(true)}
