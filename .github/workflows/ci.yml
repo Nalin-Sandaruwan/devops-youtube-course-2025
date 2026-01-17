@@ -85,3 +85,4 @@ jobs:
 
             docker compose ps
           EOF
+
