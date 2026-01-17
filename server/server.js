@@ -14,9 +14,7 @@ const PORT = process.env.PORT || 5000;
 const corsOptions = {
   origin: [
     'http://localhost:5173', // Vite dev server / mapped frontend
-    'http://54.146.170.255:5173',
-    'https://localhost',
-    'http://localhost'
+    'http://54.146.170.255:5173'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
