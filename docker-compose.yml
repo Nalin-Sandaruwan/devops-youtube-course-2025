@@ -6,41 +6,17 @@ services:
     restart: always
     env_file:
       - ./server/.env        
-    # Remove public port mapping so only Nginx can access it
-    expose:
-      - "5000"
+    ports:
+      - "5000:5000"
 
   frontend:
     build:
       context: ./client
       args:
-        # Update this to use just the /api path since Nginx handles the routing
-        VITE_API_URL: /api
+        VITE_API_URL: http://54.146.170.255:5000/api
     container_name: frontend
     restart: always
-    # Remove public port mapping
-    expose:
-      - "5173"
-    depends_on:
-      - backend
-
-  nginx:
-    image: nginx:alpine
-    container_name: nginx
-    restart: always
     ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./certs:/etc/nginx/certs # Mount the generated certs here
+      - "5173:5173"
     depends_on:
-      - frontend
       - backend
-
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    volumes:
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/letsencrypt

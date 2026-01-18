@@ -1,5 +1,5 @@
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || '/api'; // Changed from absolute http URL to relative path
+  import.meta.env.VITE_API_URL || 'http://54.146.170.255:5000/api';
 
 class TaskService {
   async getAllTasks() {
